@@ -71,7 +71,7 @@ with open('budget_data.csv', newline = '') as csvfile:
     # over the entire date range
     revenue_avg = (int(list_revenue[-1]) - int(list_revenue[0])) / (int(months) - 1 )
 
-# Generating the text file
+# Generating the text file and printing to terminal
 
 with open('pybank.txt','w') as file:
     file.write("Financial Analysis\n")
@@ -82,11 +82,8 @@ with open('pybank.txt','w') as file:
     file.write("Greatest Increase in Profits: " + str(increase[0]) + " ($" + str(increase[1]) + ")\n")
     file.write("Greatest Decrease in Profits: " + str(decrease[0]) + " ($" + str(decrease[1]) + ")\n")
 
-# Printing to terminal
-print("Financial Analysis")
-print("----------------------------")
-print("Total Months: " + str(months))
-print("Total: $" + str(revenue_total))
-print("Average Change: $" + str(round(revenue_avg,2)))
-print("Greatest Increase in Profits: " + str(increase[0]) + " ($" + str(increase[1]) + ")")
-print("Greatest Decrease in Profits: " + str(decrease[0]) + " ($" + str(decrease[1]) + ")")
+# Printing to terminal by opening the generated pybank.txt file and printing the results directly
+
+with open('pybank.txt') as file:
+    for line in file:
+        print(line, end='')
